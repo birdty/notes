@@ -91,18 +91,17 @@ push to a general remote basically it's called origin on github.
 
 
 git init
-git add
-git commit 
+git add .
+git commit -m "o - first comment"
+git remote add origin [url]
+git push origin master - default branch is master on any repo.
+
 git remote add remote name url
 git push remote name branch name
 master is default branch name
 git merge branch name
 git checkout branch name # change working branch
 git pull [repo url]
-
-
-
-
 
 
 
