@@ -1,0 +1,109 @@
+1.) change directory to root folder of project
+2.) type git init and hit the return key
+	this establishes a working directory.
+
+
+3.) git add . # take a snapshot of the current contents of this directory and subdirectories
+	      # the snapshot is stored in a staging area which is called "index"
+
+      add to index, add to repository.
+
+
+4.) git commit commits to repository
+
+5.) git diff, compares local folder with repo
+    git diff --cached, compares what in gits index with repository
+
+6.) git branch x creates branch x ( default branch is master )
+
+7.) git checkout x switches to branch x
+
+8.) change to branch x, [git checkout x] and merge branch y with git merge y
+
+9.) change to branch x, [git checkout x] and delete branch y with git branch -d y
+      use -D to unconditially destroy branch without any check to make sure they are merged
+
+10.) git clone x y clones repo with root dir at path x to path y
+
+11.) some globals to set:
+    git config --global user.name "Your Name"
+    git config --global user.email you@example.com
+
+12.) git pull [path to other repo] 
+
+13.) peek before pull
+
+	git fetch /home/bob/myrepo master
+	git log -p HEAD..FETCH_HEAD
+	git HEAD..FETCH_HEAD  ( changes since your head commit )
+	git HEAD...FETCH_HEAD
+	This means show everything that is reachable from either one, but exclude anything that is reachable 
+	from both of them
+
+	 ( put changes in stash before over-writing? )
+
+14.) add a remote called x: git remote add x /home/x/myrepo
+
+      you can then use the remote to pull into a special directory the repository
+      which is prefixed with the remote name then the branch name
+
+      git log -p master..bob/master would then list all changes made since bob 
+      branched by alices master branch.
+
+15.) git pull can be accomplished from a local branch. 
+
+16.) if you clone a repository you don't need to specify anything to git pull.
+	the config is stored here: git config --get remote.origin.url
+
+      origin is special branch 
+
+17.) pristine copy of cloned repo under remote origin branch master origin/master
+
+18.) can perform clones with the ssh protocol.
+	git clone host.org:/home/alice/project myrepo
+	  ( instead of ssh you can use gits native protocol or http
+
+(head - tip of current branch )
+
+$ git show HEAD^  # to see the parent of HEAD
+$ git show HEAD^^ # to see the grandparent of HEAD
+$ git show HEAD~4 # to see the great-great grandparent of HEAD
+
+You can also give commits names of your own; after running
+
+$ git tag v2.5 1b2e1d63ff
+
+master..stable diffs between branches., general notation for diffs
+
+gitk --since="2 weeks ago" drivers, changes since 2 weeks ago.
+
+Finally, most commands that take filenames will optionally allow you to precede any filename by a commit, to specify a particular version of the file:
+
+$ git diff v2.5:Makefile HEAD:Makefile.in
+You can also use git show to see any such file:
+
+$ git show v2.5:Makefile
+
+push to a general remote basically it's called origin on github.
+
+# when pushing to github remember 50Mb max file setting
+# push via https and change your .git/config file to prefix your username
+
+
+git init
+git add
+git commit 
+git remote add remote name url
+git push remote name branch name
+master is default branch name
+git merge branch name
+git checkout branch name # change working branch
+git pull [repo url]
+
+
+
+
+
+
+
+
